@@ -21,11 +21,11 @@
 
 
 module twoBitEqual(
-    input a0, a1,
-    input b0, b1,
+    input [1:0] a,
+    input [1:0] b,
     output eq_out
     );
 
-    assign eq_out = (~a1 & ~a0 & ~b1 & ~b0) | (~a1 & a0 & ~b1 & b0) | (a1 & a0 & b1 & b0) | (a1 & ~a0 & b1 & ~b0);
+    assign eq_out = (~a[1] & ~a[0] & ~b[1] & ~b[0]) | (~a[1] & a[0] & ~b[1] & b[0]) | (a[1] & a[0] & b[1] & b[0]) | (a[1] & ~a[0] & b[1] & ~b[0]);
 
 endmodule
