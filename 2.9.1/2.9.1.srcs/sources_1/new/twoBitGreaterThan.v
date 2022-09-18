@@ -21,6 +21,10 @@
 
 
 module twoBitGreaterThan(
-
+    input [1:0] a, b,
+    output gt_out
     );
+
+    assign gt_out = (a[1] & (~b[1])) | ((~b[1]) & (~b[0]) & a[0]) | (a[1] & a[0] & (~b[0]));
+
 endmodule
