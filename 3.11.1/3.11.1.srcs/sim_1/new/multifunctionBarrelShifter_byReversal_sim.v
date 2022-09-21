@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module multifunctionBarrelShifter_sim8();
+module multifunctionBarrelShifter_byReversal_sim8();
 
     reg [7:0] in;
     reg l_or_r;
