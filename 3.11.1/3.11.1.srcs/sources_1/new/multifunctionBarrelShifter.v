@@ -20,35 +20,26 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 // both iterations work just swap comments on the always blocks and output declaration
-module multifunctionBarrelShifter(
-    input [7:0] in,
+module multifunctionBarrelShifter
+    #(parameter N = 8)
+    (
+    input [N-1:0] in,
     input l_or_r,
-    // output reg [7:0] out
-    output [7:0] out
+    output reg [N-1:0] out
     );
 
-    reg [7:0] out_l, out_r;
+    reg [N-1:0] out_l, out_r;
 
-    // always@(*) begin
-    //     out_l = { in[6:0], in[7] };
-    //     out_r = { in[0], in[7:1] };
-
-    //     if(l_or_r) begin
-    //         out = out_l;
-    //     end
-    //     else begin
-    //         out = out_r;
-    //     end
-    // end
-       
-    always@(*) begin
-        out_l = { in[6:0], in[7] };
-    end
-
-    always@(*) begin
-        out_r = { in[0], in[7:1] };
-    end
-
-    assign out = l_or_r ? out_l : out_r;
+     always@(*) begin
+         out_l = { in[N-2:0], in[N-1] };
+         out_r = { in[0], in[N-1:1] };
+    
+        if(l_or_r) begin
+             out = out_l;
+         end
+         else begin
+             out = out_r;
+         end
+     end
     
 endmodule
