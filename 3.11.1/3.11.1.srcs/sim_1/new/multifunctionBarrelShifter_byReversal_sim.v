@@ -26,7 +26,7 @@ module multifunctionBarrelShifter_sim8();
     reg l_or_r;
     wire [7:0] out;
 
-    multifunctionBarrelShifter_byReversal #(.N(8)) uut(.in(in), .l_or_r(l_or_r), .out(out));
+    multifunctionBarrelShifter_byReversal uut(.in(in), .l_or_r(l_or_r), .out(out));
 
     initial begin
         in = 8'b00000000; l_or_r = 1'b0;
